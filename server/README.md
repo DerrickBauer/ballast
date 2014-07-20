@@ -1,0 +1,2 @@
+# ballast
+### a Sails application
