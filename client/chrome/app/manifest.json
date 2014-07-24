@@ -1,0 +1,47 @@
+{
+    "name": "Ballast",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Ballast is lightweight client for reporting bugs and helping your project stay afloat.",
+    "icons": {
+        "16": "images/icon-16.png",
+        "128": "images/icon-128.png"
+    },
+    "default_locale": "en",
+    "background": {
+        "scripts": [
+            "scripts/chromereload.js",
+            "scripts/background.js"
+        ]
+    },
+	"browser_action": {
+	      "default_icon": {                    // optional
+	        "19": "images/icon-16.png",           // optional
+	        "38": "images/icon-128.png"            // optional
+	      },
+	      "default_title": "Ballast",      // optional; shown in tooltip
+	      "default_popup": "app.html"        // optional
+	},
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": [
+        "styles/main.css"
+      ],
+      "js": [
+        "scripts/contentscript.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
